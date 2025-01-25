@@ -3,8 +3,7 @@ package az.abbtech.student.vehicle;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
-@Primary
+@Component(value = "chevrolet")
 public class Chevrolet implements Vehicle {
 
     @Override

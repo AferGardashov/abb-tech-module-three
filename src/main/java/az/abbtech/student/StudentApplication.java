@@ -2,7 +2,7 @@ package az.abbtech.student;
 
 import az.abbtech.student.bean.Employee;
 import az.abbtech.student.bean.Student;
-import az.abbtech.student.vehicle.Vehicle;
+import az.abbtech.student.vehicle.VehicleMain;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -19,8 +19,8 @@ public class StudentApplication {
         Employee employee = context.getBean("employee1", Employee.class);
         System.out.println(employee.getName());
 
-        Vehicle vehicle = context.getBean(Vehicle.class);
-        vehicle.move();
+        VehicleMain vehicle = context.getBean(VehicleMain.class);
+        vehicle.getVehicle();
     }
 
 }

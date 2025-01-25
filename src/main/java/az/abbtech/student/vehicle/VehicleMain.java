@@ -9,16 +9,12 @@ public class VehicleMain {
 
     private Vehicle vehicle;
 
-    public VehicleMain(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
     @Autowired
-    public void setVehicle(Vehicle vehicle) {
+    public VehicleMain(@Qualifier("ford") Vehicle vehicle) {
         this.vehicle = vehicle;
     }
 
     public void getVehicle() {
-        System.out.println(vehicle + " is moving");;
+        vehicle.move();
     }
 }
