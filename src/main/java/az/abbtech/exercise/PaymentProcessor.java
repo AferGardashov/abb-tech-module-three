@@ -1,8 +1,8 @@
-package exercise;
+package az.abbtech.exercise;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import exercise.service.PaymentService;
+import az.abbtech.exercise.service.PaymentService;
 
 import java.util.Map;
 

@@ -1,12 +1,12 @@
-package exercise.service;
+package az.abbtech.exercise.service;
 
 import org.springframework.stereotype.Component;
 
-@Component(value = "paypal")
-public class PayPalPaymentService implements PaymentService {
+@Component(value = "credit")
+public class CreditCardPaymentService implements PaymentService {
 
     {
-        System.out.println("PayPalPaymentService");
+        System.out.println("CreditCardPaymentService");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -15,6 +15,6 @@ public class PayPalPaymentService implements PaymentService {
     }
     @Override
     public void processPayment(double amount) {
-        System.out.println("Paypal payment is processed!" + amount);
+        System.out.println("Credit card payment processed: " + amount);
     }
 }

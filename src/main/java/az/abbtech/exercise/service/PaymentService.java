@@ -1,4 +1,4 @@
-package exercise.service;
+package az.abbtech.exercise.service;
 
 public interface PaymentService {
 

@@ -1,4 +1,4 @@
-package exercise;
+package az.abbtech.exercise;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
