@@ -1,4 +1,4 @@
-package test.service;
+package exercise.service;
 
 public interface PaymentService {
 

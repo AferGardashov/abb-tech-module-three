@@ -1,12 +1,12 @@
-package test.service;
+package exercise.service;
 
 import org.springframework.stereotype.Component;
 
-@Component(value = "credit")
-public class CreditCardPaymentService implements PaymentService {
+@Component(value = "paypal")
+public class PayPalPaymentService implements PaymentService {
 
     {
-        System.out.println("CreditCardPaymentService");
+        System.out.println("PayPalPaymentService");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -15,6 +15,6 @@ public class CreditCardPaymentService implements PaymentService {
     }
     @Override
     public void processPayment(double amount) {
-        System.out.println("Credit card payment processed: " + amount);
+        System.out.println("Paypal payment is processed!" + amount);
     }
 }

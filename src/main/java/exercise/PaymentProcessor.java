@@ -1,9 +1,8 @@
-package test;
+package exercise;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import test.service.PaymentService;
+import exercise.service.PaymentService;
 
 import java.util.Map;
 
