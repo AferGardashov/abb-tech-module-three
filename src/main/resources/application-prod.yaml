@@ -1,7 +1,0 @@
-server:
-  servlet:
-    context-path: /api/v1/abb-tech-module-three
-
-student:
-  class:
-    name: 10B

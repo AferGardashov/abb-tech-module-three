@@ -1,33 +1,45 @@
 package az.abbtech.student.controller;
 
-import az.abbtech.student.dto.StudentDto;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import az.abbtech.student.dto.ReqStudentDto;
+import az.abbtech.student.dto.RespStudentDto;
+import az.abbtech.student.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/students")
 public class StudentController {
 
+    private final StudentService studentService;
 
-    @GetMapping("/get/{name}/{surname}")
-    public ResponseEntity<StudentDto> getStudent(
-            @PathVariable String name,
-            @PathVariable String surname,
-            @RequestParam(required = false, defaultValue = "test") String email) {
-
-
-        return ResponseEntity.status(HttpStatus.OK).
-                body(new StudentDto(name, surname, email));
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
-    @PostMapping("/post")
-    public void saveStudent(
-            @RequestHeader("X-USER-ID") String userId,
-            @RequestBody StudentDto studentDto) {
 
-        System.out.println(studentDto);
-        System.out.println(userId);
-        throw new ArithmeticException("Arithmetic Error");
+    @PostMapping("/post")
+    public void save(@RequestBody ReqStudentDto reqStudentDto) {
+        studentService.saveStudent(reqStudentDto);
+    }
+
+    @GetMapping("/get")
+    public List<RespStudentDto> getAll() {
+        return studentService.getStudents();
+    }
+
+    @GetMapping("/get/{id}")
+    public RespStudentDto getById(@PathVariable int id) {
+        return studentService.getStudentById(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable int id) {
+        studentService.deleteStudentById(id);
+    }
+
+    @PutMapping("/put/{id}")
+    public void update(@RequestBody ReqStudentDto reqStudentDto, @PathVariable int id) {
+        studentService.updateStudent(reqStudentDto, id);
     }
 }

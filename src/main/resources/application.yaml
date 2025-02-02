@@ -1,7 +1,11 @@
 server:
   servlet:
     context-path: /api/v1/abb-tech-module-three
-
-student:
-  class:
-    name: 10B
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/abb_tech
+    username: postgres
+    password: postgres
+    hikari:
+      schema: student_service
