@@ -1,4 +1,4 @@
-package az.abbtech.student.dto;
+package az.abbtech.student.dto.req;
 
 
 import java.math.BigDecimal;

@@ -1,14 +1,14 @@
 package az.abbtech.student.controller;
 
-import az.abbtech.student.dto.ReqStudentDto;
-import az.abbtech.student.dto.RespStudentDto;
+import az.abbtech.student.dto.req.ReqStudentDto;
+import az.abbtech.student.dto.resp.RespStudentDto;
 import az.abbtech.student.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/student")
 public class StudentController {
 
     private final StudentService studentService;

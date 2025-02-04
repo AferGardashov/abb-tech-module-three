@@ -1,5 +1,6 @@
 package az.abbtech.student.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,27 +9,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentEntity{
+public class ClassEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private BigDecimal score;
-    private String username;
-    private String password;
+    private int id;
 
-    public StudentEntity(String name, BigDecimal score, String username, String password) {
+    private String name;
+
+    public ClassEntity(String name) {
         this.name = name;
-        this.score = score;
-        this.username = username;
-        this.password = password;
     }
 
 }

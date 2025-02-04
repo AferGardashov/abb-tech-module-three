@@ -14,21 +14,17 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentEntity{
+public class StudentLessonGradeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private BigDecimal score;
-    private String username;
-    private String password;
+    private int id;
+    private BigDecimal grade;
+    private int studentId;
 
-    public StudentEntity(String name, BigDecimal score, String username, String password) {
-        this.name = name;
-        this.score = score;
-        this.username = username;
-        this.password = password;
+    public StudentLessonGradeEntity(BigDecimal grade, int studentId) {
+        this.grade = grade;
+        this.studentId = studentId;
     }
 
 }

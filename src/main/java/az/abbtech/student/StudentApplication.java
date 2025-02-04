@@ -11,7 +11,6 @@ public class StudentApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(StudentApplication.class, args);
 
-
     }
 
 }

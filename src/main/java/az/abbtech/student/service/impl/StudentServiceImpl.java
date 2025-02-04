@@ -1,9 +1,10 @@
-package az.abbtech.student.service;
+package az.abbtech.student.service.impl;
 
-import az.abbtech.student.dto.ReqStudentDto;
-import az.abbtech.student.dto.RespStudentDto;
+import az.abbtech.student.dto.req.ReqStudentDto;
+import az.abbtech.student.dto.resp.RespStudentDto;
 import az.abbtech.student.entity.StudentEntity;
 import az.abbtech.student.repository.StudentRepository;
+import az.abbtech.student.service.StudentService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

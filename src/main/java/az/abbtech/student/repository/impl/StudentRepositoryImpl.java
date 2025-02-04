@@ -1,6 +1,7 @@
-package az.abbtech.student.repository;
+package az.abbtech.student.repository.impl;
 
 import az.abbtech.student.entity.StudentEntity;
+import az.abbtech.student.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,7 +14,6 @@ import java.util.List;
 @Repository
 public class StudentRepositoryImpl implements StudentRepository {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public StudentRepositoryImpl(JdbcTemplate jdbcTemplate) {
