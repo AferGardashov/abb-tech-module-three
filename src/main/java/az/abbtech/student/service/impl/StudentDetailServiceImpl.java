@@ -20,17 +20,31 @@ public class StudentDetailServiceImpl implements StudentDetailService {
 
     @Override
     public void saveStudentDetail(ReqStudentDetailDto reqStudentDetailDto) {
-        studentDetailRepository.save(reqStudentDetailDto);
+        studentDetailRepository.save(new StudentDetailEntity(reqStudentDetailDto.address()
+                , reqStudentDetailDto.phone()
+                , reqStudentDetailDto.city()
+                , reqStudentDetailDto.studentId()));
     }
 
     @Override
     public List<RespStudentDetailDto> getStudentDetails() {
-        return studentDetailRepository.findAll();
+        return studentDetailRepository.findAll().stream().map(studentDetailEntity -> new RespStudentDetailDto(
+                studentDetailEntity.getId()
+                , studentDetailEntity.getAddress()
+                , studentDetailEntity.getPhone()
+                , studentDetailEntity.getCity()
+                , studentDetailEntity.getStudentId()
+        )).toList();
     }
 
     @Override
     public RespStudentDetailDto getStudentDetailById(int id) {
-        return studentDetailRepository.findById(id);
+        var studentDetailEntity = studentDetailRepository.findById(id);
+        return new RespStudentDetailDto(studentDetailEntity.getId()
+                , studentDetailEntity.getAddress()
+                , studentDetailEntity.getPhone()
+                , studentDetailEntity.getCity()
+                , studentDetailEntity.getStudentId());
     }
 
     @Override
@@ -40,6 +54,10 @@ public class StudentDetailServiceImpl implements StudentDetailService {
 
     @Override
     public void updateStudentDetail(ReqStudentDetailDto reqStudentDetailDto) {
-        studentDetailRepository.update(reqStudentDetailDto);
+        studentDetailRepository.update(new StudentDetailEntity(
+                reqStudentDetailDto.address()
+                , reqStudentDetailDto.phone()
+                , reqStudentDetailDto.city()
+                , reqStudentDetailDto.studentId()));
     }
 }

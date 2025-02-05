@@ -1,6 +1,7 @@
 package az.abbtech.student.service.impl;
 
 import az.abbtech.student.dto.req.ReqStudentLessonGradeDto;
+import az.abbtech.student.dto.resp.RespStudentLessonGradeDto;
 import az.abbtech.student.entity.StudentLessonGradeEntity;
 import az.abbtech.student.repository.StudentLessonGradeRepository;
 import az.abbtech.student.service.StudentLessonGradeService;
@@ -19,17 +20,24 @@ public class StudentLessonGradeServiceImpl implements StudentLessonGradeService 
 
     @Override
     public void saveLessonGrade(ReqStudentLessonGradeDto lessonGrade) {
-        studentLessonGradeRepository.save(lessonGrade);
+        studentLessonGradeRepository.save(new StudentLessonGradeEntity(lessonGrade.grade(), lessonGrade.studentId()));
     }
 
     @Override
-    public List<ReqStudentLessonGradeDto> getLessonGrades() {
-        return studentLessonGradeRepository.findAll();
+    public List<RespStudentLessonGradeDto> getLessonGrades() {
+        return studentLessonGradeRepository.findAll().stream().map(studentLessonGradeEntity -> new RespStudentLessonGradeDto(
+                studentLessonGradeEntity.getId()
+                , studentLessonGradeEntity.getGrade()
+                , studentLessonGradeEntity.getStudentId())
+        ).toList();
     }
 
     @Override
-    public ReqStudentLessonGradeDto getLessonGradeById(int id) {
-        return studentLessonGradeRepository.findById(id);
+    public RespStudentLessonGradeDto getLessonGradeById(int id) {
+        var studentLessonGradeEntity = studentLessonGradeRepository.findById(id);
+        return new RespStudentLessonGradeDto(studentLessonGradeEntity.getId()
+                , studentLessonGradeEntity.getGrade()
+                , studentLessonGradeEntity.getStudentId());
     }
 
     @Override
@@ -39,6 +47,6 @@ public class StudentLessonGradeServiceImpl implements StudentLessonGradeService 
 
     @Override
     public void updateLessonGrade(ReqStudentLessonGradeDto lessonGrade) {
-        studentLessonGradeRepository.update(lessonGrade);
+        studentLessonGradeRepository.update(new StudentLessonGradeEntity(lessonGrade.grade(), lessonGrade.studentId()));
     }
 }
